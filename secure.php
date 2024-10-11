@@ -27,7 +27,14 @@
     // Example of vulnerable code (for educational purposes only)
     if (isset($_GET['category'])) {
         $category = $_GET['category'];
+
+        if (!preg_match("/^[A-Za-z]+$/", $category)) {
+            die("Invalid category. Only A-Z characters are allowed.");
+        }
+
         
+
+            
         // Database connection parameters
         $servername = "localhost";
         $username = "root";
@@ -79,6 +86,10 @@
     } else {
         echo "Please provide a category parameter.";
     }
+
+
+      
+        
     ?>
 </body>
 </html>
